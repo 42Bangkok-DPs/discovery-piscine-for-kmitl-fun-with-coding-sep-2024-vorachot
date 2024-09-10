@@ -19,15 +19,3 @@
 .right-cell {
   background-color: coral;
 }
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  }
-
-  .left-cell,
-  .right-cell {
-    width: 100%;
-    height: 50%;
-    font-size: 4vw; /* Adjust font size for smaller screens */
-  }
-}
