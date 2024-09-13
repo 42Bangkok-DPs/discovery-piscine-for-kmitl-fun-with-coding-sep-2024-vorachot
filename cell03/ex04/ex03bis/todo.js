@@ -10,9 +10,12 @@ $(document).ready(function () {
   });
 
   function addTodo(task) {
+    console.log(task);
+    const formattedTask = task.replace(/ /g, "&nbsp;");
+    console.log(formattedTask);
     const todoItem = $("<div></div>")
       .addClass("todo-item")
-      .text(task)
+      .html(formattedTask)
       .click(function () {
         const confirmDelete = confirm("Do you want to remove this TO DO?");
         if (confirmDelete) {
@@ -37,9 +40,7 @@ $(document).ready(function () {
     console.log(document.cookie);
     const cookies = document.cookie.split(";");
     console.log(cookies);
-    const todoCookie = cookies.find((cookie) =>
-      cookie.trim().startsWith("todos=")
-    );
+    const todoCookie = cookies.find((cookie) => cookie.startsWith("todos="));
 
     if (todoCookie) {
       const todoList = JSON.parse(decodeURIComponent(todoCookie.split("=")[1]));
