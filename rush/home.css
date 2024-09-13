@@ -1,0 +1,38 @@
+/* ตั้งค่าพื้นหลังแบบเคลื่อนไหว */
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #ffafbd, #ffc3a0);
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+  background-color: #ff5e62;
+  border: none;
+  border-radius: 50px;
+  margin: 10px;
+}
