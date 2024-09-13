@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #balloon {
+        width: 200px;
+        height: 200px;
+        border-radius: 100%;
+        background-color: red;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="balloon"></div>
+
+    <script>
+      let i = 1;
+      const color = ["red", "green", "blue"];
+
+      function getCurrentDimensions($element) {
+        return {
+          width: $element.width(),
+          height: $element.height(),
+        };
+      }
+
+      function growUp($balloon) {
+        let currentDimensions = getCurrentDimensions($balloon);
+        if (i >= 2) {
+          i = 0;
+        } else {
+          i++;
+        }
+        $balloon.css({
+          "background-color": color[i],
+          width: currentDimensions.width + 10 + "px",
+          height: currentDimensions.height + 10 + "px",
+        });
+        if (currentDimensions.width > 420) {
+          $balloon.css({
+            width: "200px",
+            height: "200px",
+          });
+        }
+      }
+
+      function growDown($balloon) {
+        let currentDimensions = getCurrentDimensions($balloon);
+        if (i > 0) {
+          i--;
+        } else if (i === 0) {
+          i = 2;
+        }
+        $balloon.css("background-color", color[i]);
+        if (currentDimensions.width > 200) {
+          $balloon.css({
+            width: currentDimensions.width - 5 + "px",
+            height: currentDimensions.height - 5 + "px",
+          });
+        }
+      }
+
+      $(document).ready(function () {
+        const $balloon = $("#balloon");
+
+        $balloon.on("click", function () {
+          growUp($balloon);
+        });
+
+        $balloon.on("mouseleave", function () {
+          growDown($balloon);
+        });
+      });
+    </script>
+  </body>
+</html>
